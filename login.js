@@ -193,17 +193,18 @@ app.post("/salonm", (req, res) => {
   res.render("salonm.ejs");
 });
 app.get("/history", (req, res) => {
-  const { user_name, user_contact } = req.query;
-  const query = `SELECT * FROM users_hist WHERE user_name = ? AND user_contact = ?`;
+  const query = `SELECT * FROM users_hist WHERE name = ? AND phonenumber = ?`;
   connection.query(query, [user_name, user_contact], (err, results) => {
     if (err) {
       console.error("Error fetching data:", err);
       res.status(500).send("Error fetching data from database");
       return;
     }    
-    res.render('history', { data: results });
+    console.log(results);
+    res.render('history.ejs', { data: results });
   });
 });
+
 app.get("/checkout", (req, res) => {
   let amount = req.query.total;
   let services = [];
