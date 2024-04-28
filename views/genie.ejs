@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genie Service</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.png'); /* Add your background image URL here */
+            background-size: cover;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header {
+            
+            background-color: #fc8019;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .delivery-form {
+            background-color: rgba(255, 255, 255, 0);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .delivery-form:hover {
+            transform: scale(1.02);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #fc8019;
+            color: #fff;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #ff9933;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .confirmation {
+            display: none;
+            background-color: rgba(76, 175, 80, 0.9);
+            color: #fff;
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .confirmation img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 style="margin: 0;">Genie Service</h1>
+    </header>
+
+    <main>
+        <div class="delivery-form">
+            <div class="form-group">
+                <label for="pickup">Pickup Location:</label>
+                <input type="text" id="pickup" placeholder="Enter Pickup Location" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dropoff">Drop-off Location:</label>
+                <input type="text" id="dropoff" placeholder="Enter Drop-off Location" required>
+            </div>
+
+            <button onclick="calculateDeliveryCharge()">Calculate Delivery Charge</button>
+
+            <div id="result"></div>
+            <form method="post" action="/confirmation">
+            <button id="confirmButton" style="display: none;">Confirm Genie</button>
+        </form>
+        </div>
+    </main>
+
+    <div class="confirmation" id="confirmationMessage">
+        <img src="https://via.placeholder.com/300" alt="Genie Confirmation Image">
+        <p>Your Swiggy Genie is on the way!</p>
+        <p>Estimated delivery time: 30 minutes</p>
+    </div>
+
+    <script>
+        function calculateDeliveryCharge() {
+            var pickupLocation = document.getElementById("pickup").value;
+            var dropoffLocation = document.getElementById("dropoff").value;
+
+            // Assuming a simple calculation for demonstration purposes
+            // In a real-world scenario, you might use a more sophisticated algorithm
+            var distance = calculateDistance(pickupLocation, dropoffLocation);
+            var deliveryCharge = calculateDeliveryChargeBasedOnDistance(distance);
+
+            document.getElementById("result").innerText = "Delivery Charge: Rs. " + deliveryCharge.toFixed(2);
+
+            // Show the "Confirm Genie" button when the delivery charge is calculated
+            document.getElementById("confirmButton").style.display = "inline-block";
+        }
+
+        function calculateDistance(pickupLocation, dropoffLocation) {
+            // Simulated distance calculation
+            // In a real-world scenario, you might use a mapping or distance API
+            // to get accurate distance information
+            var distance = Math.abs(pickupLocation.length - dropoffLocation.length);
+            return distance;
+        }
+
+        function calculateDeliveryChargeBasedOnDistance(distance) {
+            // Simple calculation for demonstration purposes
+            // In a real-world scenario, you might have a more complex pricing model
+            var baseCharge = 50;
+            var chargePerKilometer = 5;
+            var deliveryCharge = baseCharge + chargePerKilometer * distance;
+            return deliveryCharge;
+        }
+    </script>
+
+</body>
+
+</html>

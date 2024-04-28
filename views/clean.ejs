@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cleaning Services Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<style>
+    /* Replace the default primary and orange colors with your custom colors */
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    header {
+        text-align: center;
+        padding: 24px;
+        background-color: #ff9500; /* Example background color, you can change it */
+        font-size: 24px; /* Adjust the font size as needed for the header */
+    }
+    header h1 {
+        font-size: 66px; /* Adjust the font size as needed for 'Your Services' */
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #ff9500; /* Example background color, you can change it */
+    }
+    :root {
+        --primary-color: #befe00;
+        --orange-400: #ff9500;
+    }
+
+    /* Update the styles using the custom colors */
+    .text-primary {
+        color: var(--primary-color) !important;
+    }
+
+    .text-orange-400 {
+        color: var(--orange-400) !important;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+    .btn-orange-400 {
+        color: #fff;
+        background-color: var(--orange-400);
+        border-color: var(--orange-400);
+    }
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: darken(var(--primary-color), 10%);
+        border-color: darken(var(--primary-color), 10%);
+    }
+
+    .btn-orange-400:hover {
+        color: #fff;
+        background-color: darken(var(--orange-400), 10%);
+        border-color: darken(var(--orange-400), 10%);
+    }
+
+
+    .service-card {
+        border: 1px solid #e1e1e1;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .service-details {
+        height: 100%;
+    }
+
+    .rating {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .read-more-dropdown {
+        border-top: 1px solid #e1e1e1;
+        padding-top: 10px;
+    }
+
+    .checkout-div {
+        background-color: #ffc107;
+        /* Orange background color */
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* Optional: Add a subtle shadow */
+    }
+
+    .selected-services-list {
+        margin-top: 10px;
+    }
+
+    .list-group-item {
+        background-color: #fff;
+        /* White background color for list items */
+        border: 1px solid #ffc107;
+        /* Orange border */
+        color: #333;
+        /* Text color */
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <section class="bg-white h-100">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-7">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item py-4 service-card">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="https://www.urbanrepairing.in/wp-content/uploads/2021/04/Layer-8.jpg" alt="Shop Image"
+                                        class="img-fluid rounded">
+                                </div>
+                                <div class="col-md-8">
+                                    <div
+                                        class="px-3 py-2 d-flex flex-column justify-content-between h-100 service-details">
+                                        <div>
+                                            <h3 class="card-title" id="chimney-service">
+                                                 Chimney Cleaning Service
+                                            </h3>
+                                            <p class="card-text">
+                                                Professional chimney cleaning service to ensure a safe and efficient
+                                                cooking environment.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="text-muted">
+                                                    <small class="rating">Rating: 4.5/5</small>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-sm btn-orange-400 read-more" id="read-11">
+                                                        Read More
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                            class="bi bi-arrow-right" fill="currentColor"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z">
+                                                            </path>
+                                                            <path fill-rule="evenodd"
+                                                                d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- Dropdown for Read More -->
+                                            <div class="read-more-dropdown mt-2" style="display: none;">
+                                                <!-- Additional Details or Services -->
+                                                <p>This service includes:</p>
+                                                <ul>
+                                                    <li>Thorough inspection and cleaning of the chimney</li>
+                                                    <li>Removal of  buildup and debris</li>
+                                                    <li>Proper cleaning of the filters</li>
+                                                    <li>Professional recommendations for maintenance</li>
+                                                </ul>
+                                                <br />
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="price-details">
+                                                        <span class="badge bg-primary">Rs 600.00</span>
+                                                    </div>
+
+                                                    <button class="btn btn-sm btn-orange-400 add-to-cart-dropdown" id="chimney">
+                                                        Add to Cart
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                            class="bi bi-arrow-right" fill="currentColor"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z">
+                                                            </path>
+                                                            <path fill-rule="evenodd"
+                                                                d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item py-4 service-card">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="https://s3-ap-southeast-1.amazonaws.com/urbanclap-prod/images/growth/home-screen/1625159882387-9585c7.jpeg" alt="Shop Image"
+                                        class="img-fluid rounded">
+                                </div>
+                                <div class="col-md-8">
+                                    <div
+                                        class="px-3 py-2 d-flex flex-column justify-content-between h-100 service-details">
+                                        <div>
+                                            <h3 class="card-title" id="bathroom-service">
+                                                Bathroom Cleaning Service
+                                            </h3>
+                                            <p class="card-text">
+                                                Intense bathroom cleaning
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="text-muted">
+                                                    <small class="rating">Rating: 4/5</small>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-sm btn-orange-400 read-more" id="read-12">
+                                                        Read More
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                            class="bi bi-arrow-right" fill="currentColor"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z">
+                                                            </path>
+                                                            <path fill-rule="evenodd"
+                                                                d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- Dropdown for Read More -->
+                                            <div class="read-more-dropdown mt-2" style="display: none;">
+                                                <!-- Additional Details or Services -->
+                                                <p>This service includes:</p>
+                                                <ul>
+                                                    <li>Thorough inspection and cleaning of toilet pot,basin,exhaust etc</li>
+                                                    <li>Removal of dirt,deposits and stains from walls,celings and high touch services</li>
+                                                    <li>Drying up the bathroom with muti-fiber cloth,restocking objects and spraying scented freshner</li>
+                                        
+                                                </ul>
+                                                <br />
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="price-details">
+                                                        <span class="badge bg-primary">Rs 1357.00</span>
+                                                    </div>
+
+                                                    <button class="btn btn-sm btn-orange-400 add-to-cart-dropdown" id="bathroom">
+                                                        Add to Cart
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                            class="bi bi-arrow-right" fill="currentColor"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z">
+                                                            </path>
+                                                            <path fill-rule="evenodd"
+                                                                d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item py-4 service-card">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="data:image/jpeg;base64,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" alt="Shop Image"
+                                        class="img-fluid rounded">
+                                </div>
+                                <div class="col-md-8">
+                                    <div
+                                        class="px-3 py-2 d-flex flex-column justify-content-between h-100 service-details">
+                                        <div>
+                                            <h3 class="card-title" id="kitchen-service">
+                                                Kitchen Cleaning Service
+                                            </h3>
+                                            <p class="card-text">
+                                                Through and systematic cleaning using professional tools and specially curated chemicals for a spotless kitchen.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="text-muted">
+                                                    <small class="rating">Rating: 3.5/5</small>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-sm btn-orange-400 read-more" id="read-13">
+                                                        Read More
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                            class="bi bi-arrow-right" fill="currentColor"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z">
+                                                            </path>
+                                                            <path fill-rule="evenodd"
+                                                                d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- Dropdown for Read More -->
+                                            <div class="read-more-dropdown mt-2" style="display: none;">
+                                                <!-- Additional Details or Services -->
+                                                <p>This service includes:</p>
+                                                <ul>
+                                                    <li>Removal of dirt and stains from windows,floors,sink,countertop,stove etc</li>
+                                                    <li>Drying up the kitchen and restocking all items.</li>
+                                                </ul>
+                                                <br />
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="price-details">
+                                                        <span class="badge bg-primary">Rs 1699.00</span>
+                                                    </div>
+
+                                                    <button class="btn btn-sm btn-orange-400 add-to-cart-dropdown" id="kitchen-clean" >
+                                                        Add to Cart
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                            class="bi bi-arrow-right" fill="currentColor"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z">
+                                                            </path>
+                                                            <path fill-rule="evenodd"
+                                                                d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item py-4 service-card">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="data:image/jpeg;base64,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" alt="Shop Image"
+                                        class="img-fluid rounded">
+                                </div>
+                                <div class="col-md-8">
+                                    <div
+                                        class="px-3 py-2 d-flex flex-column justify-content-between h-100 service-details">
+                                        <div>
+                                            <h3 class="card-title" id="sofa-service">
+                                                Sofa Cleaning Service
+                                            </h3>
+                                            <p class="card-text">
+                                                Through and systematic sofa cleaning.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="text-muted">
+                                                    <small class="rating">Rating: 4/5</small>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-sm btn-orange-400 read-more" id="read-14">
+                                                        Read More
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                            class="bi bi-arrow-right" fill="currentColor"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z">
+                                                            </path>
+                                                            <path fill-rule="evenodd"
+                                                                d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- Dropdown for Read More -->
+                                            <div class="read-more-dropdown mt-2" style="display: none;">
+                                                <!-- Additional Details or Services -->
+                                                <p>This service includes:</p>
+                                                <ul>
+                                                    <li>Removal of dirt and dust from all surfaces with dry vaccuming.</li>
+                                                    <li>Cleaning the sofa with foam-based shampoo and wiping using a microfiber cloth</li>
+                                                    <li>Drying up the sofa</li>
+                                        
+                                                </ul>
+                                                <br />
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="price-details">
+                                                        <span class="badge bg-primary">Rs 599.00(for 3 sofa set)</span>
+                                                    </div>
+
+                                                    <button class="btn btn-sm btn-orange-400 add-to-cart-dropdown" id="sofa-repair">
+                                                        Add to Cart
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                            class="bi bi-arrow-right" fill="currentColor"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z">
+                                                            </path>
+                                                            <path fill-rule="evenodd"
+                                                                d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <form id="checkout-form" method="get" action="/checkout">
+                      <div class="checkout-div" id="cart">
+                        Your Services
+                        <ul id="cart1" class="list-group selected-services-list"></ul>
+                        <div id="total" class="total-cost">0.0</div>
+                        <button type="submit" class="btn btn-primary">Checkout</button>
+                      </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+</body>
+<footer>
+    <!-- Your footer content goes here -->
+    <p>&copy; 2023 Cleaning Services. All rights reserved.</p>
+</footer>
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    var total = 0.0;
+    var cart = [];
+    document.addEventListener("DOMContentLoaded", function () {
+      const serviceCards = document.querySelectorAll(".service-card");
+
+      serviceCards.forEach(function (serviceCard) {
+        const readMoreButton = serviceCard.querySelector(".read-more");
+        const readMoreDropdown = serviceCard.querySelector(
+          ".read-more-dropdown"
+        );
+
+        readMoreButton.addEventListener("click", function () {
+          readMoreButton.style.display = "none";
+          readMoreDropdown.style.display = "block";
+        });
+
+        document.addEventListener("click", function (event) {
+          if (
+            !event.target.closest(".read-more-dropdown") &&
+            !event.target.closest(".read-more")
+          ) {
+            readMoreDropdown.style.display = "none";
+            readMoreButton.style.display = "block";
+          }
+        });
+
+        serviceCard.addEventListener("click", function (event) {
+          if (event.target.classList.contains("add-to-cart-dropdown")) {
+            const serviceTitle =
+              serviceCard.querySelector(".card-title").innerText;
+            const price = parseFloat(
+              serviceCard
+                .querySelector(".badge.bg-primary")
+                .innerText.match(/\d+\.\d+/)[0]
+            );
+            const listItem = document.createElement("li");
+            listItem.className = "list-group-item";
+            listItem.textContent = serviceTitle;
+            listItem.dataset.price = price;
+            document
+              .querySelector(".selected-services-list")
+              .appendChild(listItem);
+            const removeButton = document.createElement("button");
+            removeButton.className =
+              "btn btn-danger btn-sm float-right remove-service";
+            removeButton.textContent = "-";
+            removeButton.style.marginLeft = "20px";
+            removeButton.addEventListener("click", function () {
+              listItem.remove();
+              updateTotalCost();
+            });
+
+            listItem.appendChild(removeButton);
+
+            updateTotalCost();
+          }
+        });
+      });
+
+      function updateTotalCost() {
+        cart=[];
+        const selectedServices = document.querySelectorAll(
+          ".selected-services-list li"
+        );
+
+        let totalCost = 0;
+
+        selectedServices.forEach((service) => {
+          cart.push(service);
+          totalCost += parseFloat(service.dataset.price);
+        });
+        total = totalCost;
+        document.getElementById("total").innerText = total.toFixed(2);
+        const totalCostElement = document.querySelector(
+          ".checkout-div .total-cost"
+        );
+        if (totalCostElement) {
+          totalCostElement.textContent = `Total Cost: Rs ${totalCost.toFixed(
+            2
+          )}`;
+        }
+      }
+    });
+
+    document
+      .getElementById("checkout-form")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Add hidden input fields for each item in the cart
+        cart.forEach((item, index) => {
+          var serviceNameInput = document.createElement("input");
+          var priceInput = document.createElement("input");
+          serviceNameInput.type = "hidden";
+          priceInput.type = "hidden";
+          serviceNameInput.name = `service${index + 1}`; // Unique name for each service
+          priceInput.name = `price${index + 1}`; // Unique name for each price
+          serviceNameInput.value = item.textContent;
+          priceInput.value = item.dataset.price;
+          this.appendChild(serviceNameInput);
+          this.appendChild(priceInput);
+        });
+
+        // Add a hidden input field to the form with the total amount
+        var totalInput = document.createElement("input");
+        totalInput.type = "hidden";
+        totalInput.name = "total";
+        totalInput.value = total.toFixed(2);
+        this.appendChild(totalInput);
+
+        // Submit the form
+        this.submit();
+      });
+  </script>
+
+
+</html>

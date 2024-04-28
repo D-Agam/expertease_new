@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Spa Services</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #ff99cc;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .service {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid #ccc;
+            padding: 20px 0;
+        }
+
+        .service img {
+            max-width: 120px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .service-info {
+            flex-grow: 1;
+        }
+
+        .service h2 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
+
+        .service p {
+            color: #666;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .service-price {
+            font-weight: bold;
+            font-size: 18px;
+            color: #1a1a1a;
+        }
+
+        .service-details {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .read-more {
+            cursor: pointer;
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+
+        .service button {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .service button:hover {
+            background-color: #333;
+        }
+
+        .cart {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            z-index: 999;
+        }
+
+        .cart h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #cart1 {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart1 li {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #cart-final {
+        background-color: #ff99cc;
+        border: none;
+        font-weight: bolder;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease-in-out;
+        }
+        #total {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Back navigation arrow */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .remove-btn {
+            background-color: #ff3333;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .remove-btn:hover {
+            background-color: #cc0000;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Women's Spa Services</h1>
+    </header>
+
+    <section>
+        <!-- Service 3 -->
+        <div class="service" id="service3">
+            <img src="Screenshot 2023-11-20 at 12.23.27 AM.png" alt="Pinda Sweda Detox Therapy">
+            <div class="service-info">
+                <h2>Pinda Sweda: Potli Detox Therapy</h2>
+                <p>Enjoy the detoxifying benefits of Pinda Sweda, a therapy using herbal potlis.</p>
+                <p class="service-price">Rs. 1200.00</p>
+                <button onclick="addToCart('Pinda Sweda', 1200.00)" id="Pinda-sewa">Add to Cart</button>
+                <span class="read-more" onclick="toggleDetails('service3-details')">Read More</span>
+                <div class="service-details" id="service3-details">
+                    <p>Pinda Sweda involves the use of herbal potlis (bundles) filled with medicated herbs. The therapy helps in detoxification, pain relief, and enhancing blood circulation.</p>
+                    <p>Additional Benefits:</p>
+                    <ul>
+                        <li>Relief from joint pain</li>
+                        <li>Skin rejuvenation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service" id="service4">
+            <img src="Screenshot 2023-11-20 at 12.23.42 AM.png" alt="Meditative Abhyanga Calming Therapy">
+            <div class="service-info">
+                <h2>Meditative Abhyanga: Calming Therapy</h2>
+                <p>Experience a calming and meditative massage to relax the body and mind.</p>
+                <p class="service-price">Rs. 850.00</p>
+                <button onclick="addToCart('Meditative Abhyanga', 850.00)" id="abhyanga">Add to Cart</button>
+                <span class="read-more" onclick="toggleDetails('service4-details')">Read More</span>
+                <div class="service-details" id="service4-details">
+                    <p>Meditative Abhyanga combines gentle massage techniques with calming Ayurvedic oils to promote relaxation and reduce stress. The therapy aims to bring balance to the mind and body.</p>
+                    <p>Additional Benefits:</p>
+                    <ul>
+                        <li>Mental relaxation</li>
+                        <li>Improved sleep quality</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service" id="service5">
+            <img src="Screenshot 2023-11-20 at 12.24.00 AM.png" alt="Sand Khizhi Soothing Therapy">
+            <div class="service-info">
+                <h2>Sand Khizhi: Soothing Sand Potli Therapy</h2>
+                <p>Enjoy a soothing therapy using sand potlis for relaxation and rejuvenation.</p>
+                <p class="service-price">Rs. 1100.00</p>
+                <button onclick="addToCart('Sand Khizhi', 1100.00)" id="therapy">Add to Cart</button>
+                <span class="read-more" onclick="toggleDetails('service5-details')">Read More</span>
+                <div class="service-details" id="service5-details">
+                    <p>Sand Khizhi involves the use of potlis filled with warm sand. The therapy is known for its soothing and rejuvenating effects, promoting muscle relaxation and relieving stiffness.</p>
+                    <p>Additional Benefits:</p>
+                    <ul>
+                        <li>Improved joint flexibility</li>
+                        <li>Enhanced blood circulation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <form id="checkout-form" method="get" action="/checkout">
+        <div class="cart" id="cart">
+          <h2>Cart</h2>
+          <ul id="cart1"></ul>
+          <p>Total: Rs<span id="total">0</span></p>
+          <button id="cart-final">Checkout</button>
+        </div>
+      </form>
+  
+      <footer>
+        <p>&copy; 2023 Furniture Assembly Services. All rights reserved.</p>
+      </footer>
+  
+      <script>
+        var cart = [];
+        var total = 0.0;
+  
+        function goBack() {
+          window.history.back();
+        }
+  
+        function addToCart(serviceName, price) {
+          cart.push({ service: serviceName, price: price });
+          total += price;
+          var cartList = document.getElementById("cart1");
+          var newItem = document.createElement("li");
+          var textNode = document.createTextNode(serviceName);
+          newItem.appendChild(textNode);
+          cartList.appendChild(newItem);
+          var amt = document.getElementById("total");
+          amt.innerText = total.toFixed(2);
+        }
+  
+        function removeFromCart(index) {
+          var removedItem = cart.splice(index, 1)[0];
+          total -= removedItem.price;
+          var cartList = document.getElementById("cart1");
+          cartList.removeChild(cartList.childNodes[index]);
+          var amt = document.getElementById("total");
+          amt.innerText = total.toFixed(2);
+        }
+  
+        function updateCart() {
+          var cartList = document.getElementById("cart1");
+          var totalElement = document.getElementById("total");
+          cartList.innerHTML = "";
+          cart.forEach((item, index) => {
+            var listItem = document.createElement("li");
+            listItem.innerHTML = `${item.service} - Rs. ${item.price.toFixed(
+              2
+            )} <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>`;
+            cartList.appendChild(listItem);
+          });
+          totalElement.textContent = ` ${total.toFixed(2)}`;
+        }
+  
+        function toggleDetails(detailsId) {
+          var details = document.getElementById(detailsId);
+          details.style.display =
+            details.style.display === "none" ? "block" : "none";
+        }
+  
+        // Function to handle form submission
+        document
+          .getElementById("cart-final")
+          .addEventListener("click", function () {
+            // Add hidden input fields for each item in the cart
+            cart.forEach((item, index) => {
+              var form = document.getElementById("checkout-form");
+              var serviceNameInput = document.createElement("input");
+              var priceInput = document.createElement("input");
+              serviceNameInput.type = "hidden";
+              priceInput.type = "hidden";
+              serviceNameInput.name = `service${index + 1}`; // Unique name for each service
+              priceInput.name = `price${index + 1}`; // Unique name for each price
+              serviceNameInput.value = item.service;
+              priceInput.value = item.price.toFixed(2);
+              form.appendChild(serviceNameInput);
+              form.appendChild(priceInput);
+            });
+  
+            // Add a hidden input field to the form with the total amount
+            var form = document.getElementById("checkout-form");
+            var totalInput = document.createElement("input");
+            totalInput.type = "hidden";
+            totalInput.name = "total";
+            totalInput.value = total.toFixed(2);
+            form.appendChild(totalInput);
+  
+            // Submit the form
+            form.submit();
+          });
+      </script>
+
+
+</body>
+
+</html>

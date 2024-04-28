@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Salon Services</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #3399ff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .service {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding: 20px 0;
+        }
+
+        .service img {
+            max-width: 120px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .service-info {
+            flex-grow: 1;
+        }
+
+        .service h2 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
+
+        .service p {
+            color: #666;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .service-price {
+            font-weight: bold;
+            font-size: 18px;
+            color: #1a1a1a;
+        }
+
+        .service-details {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .read-more {
+            cursor: pointer;
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+
+        .service button {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .service button:hover {
+            background-color: #333;
+        }
+
+        .cart {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            z-index: 999;
+        }
+
+        .cart h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #cart1 {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart1 li {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #total {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .remove-btn {
+            background-color: #ff4d4d;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        #cart-final {
+        background-color: #458bc5;
+        border: none;
+        font-weight: bolder;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease-in-out;
+        }
+        /* Back navigation arrow */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            background-color: #3399ff;
+            color: #484747;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Men's Salon Services</h1>
+    </header>
+
+    <section>
+        <!-- Service 1 -->
+        <div class="service" id="service1">
+            <img src="Screenshot 2023-11-19 at 10.42.42 PM.png" alt="Haircut">
+            <div class="service-info">
+                <h2>Haircut</h2>
+                <p>Get a stylish haircut from our experienced stylists.</p>
+                <p class="service-price">Rs. 300.00</p>
+                <button onclick="addToCart('Haircut', 300.00)" id="hair-cut">Add to Cart</button>
+                <span class="read-more" onclick="toggleDetails('service1-details')">Read More</span>
+                <div class="service-details" id="service1-details">
+                    <p>Our skilled stylists will provide you with a trendy and personalized haircut based on your preferences and face shape. Whether you prefer a classic style or the latest trend, we've got you covered.</p>
+                    <p>Additional Services:</p>
+                    <ul>
+                        <li>Shampoo and Conditioning</li>
+                        <li>Styling and Finish</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service" id="service2">
+            <img src="Screenshot 2023-11-19 at 10.43.46 PM.png" alt="Face Care">
+            <div class="service-info">
+                <h2>Face Care</h2>
+                <p>Revitalize your skin with our facial treatments.</p>
+                <p class="service-price">Rs. 500.00</p>
+                <button onclick="addToCart('Face Care', 500.00)" id="face-care">Add to Cart</button>
+                <span class="read-more" onclick="toggleDetails('service2-details')">Read More</span>
+                <div class="service-details" id="service2-details">
+                    <p>Indulge in our facial treatments designed to cleanse, exfoliate, and nourish your skin. Our experienced estheticians will tailor the treatment to address your specific skin concerns, leaving you with a refreshed and glowing complexion.</p>
+                    <p>Additional Services:</p>
+                    <ul>
+                        <li>Extraction for Deep Cleansing</li>
+                        <li>Facial Massage and Moisturizing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service" id="service3">
+            <img src="Screenshot 2023-11-19 at 10.44.29 PM.png" alt="Shave/Beard Grooming">
+            <div class="service-info">
+                <h2>Shave/Beard Grooming</h2>
+                <p>Experience a classic shave or grooming for your beard.</p>
+                <p class="service-price">Rs. 250.00</p>
+                <button onclick="addToCart('Shave/Beard Grooming', 250.00)" id="shave">Add to Cart</button>
+                <span class="read-more" onclick="toggleDetails('service3-details')">Read More</span>
+                <div class="service-details" id="service3-details">
+                    <p>Our skilled barbers provide a classic shave or professional grooming for your beard. Enjoy a relaxing experience and leave with a perfectly groomed look.</p>
+                    <p>Additional Services:</p>
+                    <ul>
+                        <li>Hot Towel Treatment</li>
+                        <li>Beard Trim and Sculpting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service" id="service4">
+            <img src="Screenshot 2023-11-19 at 10.44.52 PM.png" alt="Hair Colour">
+            <div class="service-info">
+                <h2>Hair Colour</h2>
+                <p>Add a touch of color to your hair for a vibrant look.</p>
+                <p class="service-price">Rs. 400.00</p>
+                <button onclick="addToCart('Hair Colour', 400.00)" id="hair-color">Add to Cart</button>
+                <span class="read-more" onclick="toggleDetails('service4-details')">Read More</span>
+                <div class="service-details" id="service4-details">
+                    <p>Transform your look with our professional hair coloring services. Our color experts will help you choose the perfect shade to enhance your style and express your personality.</p>
+                    <p>Additional Services:</p>
+                    <ul>
+                        <li>Color Consultation</li>
+                        <li>Root Touch-Up</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service" id="service5">
+            <img src="Screenshot 2023-11-19 at 10.45.28 PM.png" alt="Pedicure">
+            <div class="service-info">
+                <h2>Pedicure</h2>
+                <p>Treat your feet to a relaxing and rejuvenating pedicure.</p>
+                <p class="service-price">Rs. 1000.00</p>
+                <button onclick="addToCart('Pedicure', 1000.00)" id="pedicure">Add to Cart</button>
+                <span class="read-more" onclick="toggleDetails('service5-details')">Read More</span>
+                <div class="service-details" id="service5-details">
+                    <p>Relax and unwind with our pedicure services. Our skilled technicians will pamper your feet, leaving them feeling soft, refreshed, and ready to take on the day.</p>
+                    <p>Additional Services:</p>
+                    <ul>
+                        <li>Foot Soak and Scrub</li>
+                        <li>Nail Care and Polish</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <form id="checkout-form" method="get" action="/checkout">
+        <div class="cart" id="cart">
+          <h2>Cart</h2>
+          <ul id="cart1"></ul>
+          <p>Total: Rs<span id="total">0</span></p>
+          <button id="cart-final">Checkout</button>
+        </div>
+      </form>
+  
+      <footer>
+        <p>&copy; 2023 Furniture Assembly Services. All rights reserved.</p>
+      </footer>
+  
+      <script>
+        var cart = [];
+        var total = 0.0;
+  
+        function goBack() {
+          window.history.back();
+        }
+  
+        function addToCart(serviceName, price) {
+          cart.push({ service: serviceName, price: price });
+          total += price;
+          var cartList = document.getElementById("cart1");
+          var newItem = document.createElement("li");
+          var textNode = document.createTextNode(serviceName);
+          newItem.appendChild(textNode);
+          cartList.appendChild(newItem);
+          var amt = document.getElementById("total");
+          amt.innerText = total.toFixed(2);
+        }
+  
+        function removeFromCart(index) {
+          var removedItem = cart.splice(index, 1)[0];
+          total -= removedItem.price;
+          var cartList = document.getElementById("cart1");
+          cartList.removeChild(cartList.childNodes[index]);
+          var amt = document.getElementById("total");
+          amt.innerText = total.toFixed(2);
+        }
+  
+        function updateCart() {
+          var cartList = document.getElementById("cart1");
+          var totalElement = document.getElementById("total");
+          cartList.innerHTML = "";
+          cart.forEach((item, index) => {
+            var listItem = document.createElement("li");
+            listItem.innerHTML = `${item.service} - Rs. ${item.price.toFixed(
+              2
+            )} <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>`;
+            cartList.appendChild(listItem);
+          });
+          totalElement.textContent = ` ${total.toFixed(2)}`;
+        }
+  
+        function toggleDetails(detailsId) {
+          var details = document.getElementById(detailsId);
+          details.style.display =
+            details.style.display === "none" ? "block" : "none";
+        }
+  
+        // Function to handle form submission
+        document
+          .getElementById("cart-final")
+          .addEventListener("click", function () {
+            // Add hidden input fields for each item in the cart
+            cart.forEach((item, index) => {
+              var form = document.getElementById("checkout-form");
+              var serviceNameInput = document.createElement("input");
+              var priceInput = document.createElement("input");
+              serviceNameInput.type = "hidden";
+              priceInput.type = "hidden";
+              serviceNameInput.name = `service${index + 1}`; // Unique name for each service
+              priceInput.name = `price${index + 1}`; // Unique name for each price
+              serviceNameInput.value = item.service;
+              priceInput.value = item.price.toFixed(2);
+              form.appendChild(serviceNameInput);
+              form.appendChild(priceInput);
+            });
+  
+            // Add a hidden input field to the form with the total amount
+            var form = document.getElementById("checkout-form");
+            var totalInput = document.createElement("input");
+            totalInput.type = "hidden";
+            totalInput.name = "total";
+            totalInput.value = total.toFixed(2);
+            form.appendChild(totalInput);
+  
+            // Submit the form
+            form.submit();
+          });
+      </script>
+
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Salon & Spa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #ff6699;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .salon-option {
+            text-align: center;
+            padding: 20px;
+            width: 250px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            background-color: #fff;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .salon-option:hover {
+            transform: scale(1.05);
+        }
+
+        .salon-option img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .salon-option h2 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .salon-option p {
+            color: #666;
+        }
+
+        footer {
+            background-color: #ff6699;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Back navigation arrow */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none; /* Remove underline */
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Women's Salon & Spa</h1>
+    </header>
+
+    <section>
+        <form method="post" action="/salonw1">
+        <button  class="salon-option" id="salon-wm">
+            <img src="Screenshot 2023-11-19 at 5.07.19 PM.png" alt="Salon for Women">
+            <h2>Salon for Women</h2>
+            <p>Indulge in a world of beauty with our specialized salon services for women. Enjoy waxing, classic manicures , pedicures
+                <br> and more.</p>
+        </button>
+        </form>
+        <form method="post" action="/spaw1">
+        <button class="salon-option" id="spaw">
+            <img src="Screenshot 2023-11-19 at 5.07.26 PM.png" alt="Spa for Women">
+            <h2>Spa for Women</h2>
+            <p>Relax and rejuvenate with our luxurious spa treatments designed exclusively for women. Pamper yourself with massages, facials, and more.</p>
+        </button>
+        </form>
+        <form method="post" action="/hairw1">
+        <button class="salon-option" id="hairw" >
+            <img src="Screenshot 2023-11-19 at 5.07.35 PM.png" alt="Hair Studio for Women" >
+            <h2>Hair Studio for Women</h2>
+            <p>Transform your hair with our professional hair styling services. From trendy cuts to elegant updos, we cater to your unique style.</p>
+        </button>
+        </form>
+        <form method="post" action="/nailw1">
+        <button class="salon-option" id="nailw">
+            <img src="Screenshot 2023-11-19 at 5.07.41 PM.png" alt="Nail Studio for Women">
+            <h2>Nail Studio for Women</h2>
+            <p>Pamper your hands and feet with our nail studio services. Choose from a variety of nail art designs and  manicures and pedicures.</p>
+        </button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Women's Salon & Spa. All rights reserved.</p>
+    </footer>
+
+    <a href="salonhome.html" class="back-arrow">&#8592; Back</a>
+
+</body>
+
+</html>

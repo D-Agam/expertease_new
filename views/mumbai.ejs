@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <script src="https://kit.fontawesome.com/020317c8c3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="home.css">
+<style>
+    #navbar {
+        background-color: #FFAE42;
+        padding: 10px 0px; 
+    }
+
+    #city {
+        padding-left: 190px; 
+    }
+
+    #name {
+        padding-left: 220px; 
+    }
+#photos{
+  margin:-100px;
+  height:100vh;
+  display:grid;
+  place-items:center;
+}
+
+.gallery{
+  position:relative;
+  width:300px;
+  height:200px;
+  transform-style:preserve-3d;
+  animation:rotate 35s linear infinite;
+}
+
+@keyframes rotate{
+  from{
+    transform:perspective(1200px) rotateY(0deg);
+  }
+  
+  to{
+    transform:perspective(1200px) rotateY(360deg);
+  }
+}
+footer {
+            background-color: #FFAE42;
+            padding: 10px 0;
+            text-align: center;
+        }
+.gallery span{
+  position:absolute;
+  width:100%;
+  height:100%;
+  transform-origin:center;
+  transform-style:preserve-3d;
+  transform:rotateY(calc(var(--i) * 45deg)) translateZ(380px);
+}
+#submit:hover{
+    background-color: #FFAE42;
+}
+@media (max-width: 768px) {
+    #services {
+        margin-left: 0; 
+        text-align: center;
+    }
+}
+.gallery span img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+#services{
+    margin-left: -120px;
+}
+.underline-text {
+    border-bottom: 4px solid #FFAE42;
+}
+p{
+    font-family: cursive;
+}
+
+</style>
+</head>
+<body>
+        <div class="container">
+            <div class="row" id="navbar">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="col-md-2 col-6">
+                        <i class="fa-solid fa-house fa-lg ">&nbsp;<span style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size:x-large;">ExpertEase</span></i>
+                    </div>
+                    <div class="col-md-6 col-6"></div>
+                    <div class="col-md-2 col-6 ml-auto" id="city">
+                        <i class="fa-solid fa-city">&nbsp;<span style="font-family:cursive;"><%=city%></span></i>
+                    </div>
+                    <div class="col-md-2 col-6 ml-auto" id="name">
+                        <i class="fa-solid fa-user">&nbsp;<span style="font-family:cursive;"><%=name%></span></i>
+                    </div>
+                </nav>
+            </div>
+            <hr>
+            <h1 id="services">Home services at your <span class="underline-text"> doorstep</span></h1>
+            <div class="row" id="photos">
+                <div class="gallery">
+                    <span style="--i:1">
+                      <img src="decor.webp" alt="decor" />
+                    </span>
+                    <span style="--i:2">
+                      <img src="ac.jpg" alt="ac" />
+                    </span>
+                    <span style="--i:3">
+                      <img src="aro.jpg" alt="" />
+                    </span>
+                    <span style="--i:4">
+                      <img src="clean.jpg" alt="" />
+                    </span>
+                    <span style="--i:5">
+                      <img src="fan.jpg" alt="" />
+                    </span>
+                    <span style="--i:6">
+                      <img src="plumb.jpg" alt="" />
+                    </span>
+                    <span style="--i:7">
+                      <img src="repair.jpg" alt="" />
+                    </span>
+                    <span style="--i:8">
+                      <img src="wall.jpg" alt="" />
+                    </span>
+                  </div>
+            </div>
+            <h1 id="services">Our <span class="underline-text">services</span> at a glance</h1>
+            <br>
+            <div style="background: linear-gradient(to right, #FFFFE0, #FFAE42);">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="repair_card.avif" alt="Card image cap"  style="height: 180px;">
+                        <div class="card-body">
+                        <p class="card-text">Is a faulty appliance or system causing inconvenience at your home or office? We've got you covered!
+                             Our team of skilled professionals specializes in efficient and reliable repair services.
+                             <form action="/repair" method="post">
+                                <button type="submit" class="btn btn-primary" id="submit">
+                                    Book Now 
+                                  </button>                       
+                            </form>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="clean_card.jpg" alt="Card image cap" style="height: 180px;">
+                        <div class="card-body">
+                        <p class="card-text">
+                            Are you tired of spending your weekends on cleaning chores? Let us take care of it! 
+                            Our professional cleaning services are designed to make your life easier and your home brighter.
+                            <br/><br/>
+                            <form action="/clean" method="post">
+                                <button type="submit" class="btn btn-primary" id="submit">
+                                    Book Now 
+                                  </button>                       
+                            </form>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="paint.jpg" alt="Card image cap"  style="height: 180px;">
+                        <div class="card-body">
+                        <p class="card-text">Our team of skilled painters is here to bring color and life to your home or business
+                            Eye-Catching Title Visual Element:Transform Your Space with Professional Painting!
+                            <br/><br/>
+                            <form action="/paint" method="post">
+                                <button type="submit" class="btn btn-primary" id="submit">
+                                    Book Now 
+                                  </button>                       
+                            </form>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="furniture.jpg" alt="Card image cap" style="height: 180px;">
+                        <div class="card-body">
+                        <p class="card-text">Discover the perfect blend of style and comfort with our premium furniture services.
+                            Our expert team is dedicated to creating functional and aesthetically pleasing spaces
+                            tailored to your unique taste.
+                            <br/><br/>
+                            <form action="/furniture" method="post">
+                                <button type="submit" class="btn btn-primary" id="submit">
+                                    Book Now 
+                                  </button>                       
+                            </form>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="saloon.jpg" alt="Card image cap" style="height: 180px;">
+                        <div class="card-body">
+                        <p class="card-text">Indulge in the luxury of beauty and wellness at  Beauty Studio.
+                             Our skilled team is dedicated to making you look and feel your best. Book your appointment today!
+                             <br/>
+                             <br/>
+                             <form action="/saloon" method="post">
+                                <button type="submit" class="btn btn-primary" id="submit">
+                                    Book Now 
+                                  </button>                       
+                            </form>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="del.jpg" alt="Card image cap" style="height: 180px;">
+                        <div class="card-body">
+                        <p class="card-text">Fast, Reliable, On-time Delivery!
+                            We deliver a wide range of items to your doorstep. Serving your local area with pride.
+                        </p>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <form action="/genie" method="post">
+                            <button type="submit" class="btn btn-primary" id="submit">
+                                Book Now 
+                              </button>                       
+                        </form>
+                        <br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <br/>
+            <h1 id="services">New <span class="underline-text"> and </span>Noteworthy</h1>
+            <br/>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card" style="width: 10rem;">
+                        <form action="/spam1" method="post">
+                            <button style="background-color:#FFFFE0;">
+                                <figure><img src="spamen.jpg" alt="" style="height: 180px;width: 190px;"></figure>
+                                <p id="p">Spa Men</p>
+                              </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="width: 10rem;">
+                        <form action="/spaw1" method="post">
+                            <button style="background-color:#FFFFE0;">
+                                <figure><img src="spawomen.jpg" alt="" style="height: 180px;width: 200px;"></figure>
+                                <p id="p">Spa Women</p>
+                              </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="width: 10rem;">
+                        <form action="/nailw1" method="post">
+                            <button style="background-color:#FFFFE0;">
+                                <figure><img src="nailw.jpg" alt="" style="height: 180px;width: 200px;"></figure>
+                                <p id="p">Nail Studio</p>
+                              </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="width: 10rem;">
+                        <form action="/salonm1" method="post">
+                            <button style="background-color:#FFFFE0;">
+                                <figure><img src="hair.jpg" alt="" style="height: 180px;width: 200px;"></figure>
+                                <p id="p">Men Salon</p>
+                              </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <footer>
+
+            Copyright 2023&copy;
+            <br></br>
+            <i class="fa-brands fa-linkedin"></i>&nbsp;&nbsp;|&nbsp;
+            <i class="fa-brands fa-instagram"></i>&nbsp;&nbsp;|&nbsp;
+            <i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;|&nbsp;
+            <i class="fa-brands fa-x-twitter"></i>&nbsp;&nbsp;
+        </footer>
+</body>
+</html>

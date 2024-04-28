@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Salon & Spa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #3399ff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .salon-option {
+            text-align: center;
+            padding: 20px;
+            width: 250px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            background-color: #fff;
+            text-decoration: none; /* Remove underline */
+        }
+
+        .salon-option:hover {
+            transform: scale(1.05);
+        }
+
+        .salon-option img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .salon-option h2 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .salon-option p {
+            color: #666;
+        }
+
+        footer {
+            background-color: #3399ff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Added style for back navigation arrow */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none; /* Remove underline */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Men's Salon & Spa</h1>
+    </header>
+
+    <section>
+        <!-- Salon for Men -->
+        <form method="post" action="salonm1">
+        <button class="salon-option" id="salon-for-men">
+            <img src="salonm.png" alt="Salon for Men">
+            <h2>Salon for Men</h2>
+            <p>Experience our grooming services tailored exclusively for men. From classic haircuts to personalized beard trims, we've got your style covered.</p>
+        </button>
+      </form>
+        <!-- Spa for Men -->
+        <form method="post" action="spam1">
+        <button class="salon-option" id="spa-for-men">
+            <img src="Screenshot 2023-11-19 at 5.07.26 PM.png" alt="Spa for Men">
+            <h2>Spa for Men</h2>
+            <p>Relax and unwind with our spa treatments designed specifically for men. Indulge in massages, facials, and rejuvenate your body and mind.</p>
+        </button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Men's Salon & Spa. All rights reserved.</p>
+    </footer>
+
+
+</body>
+</html>
