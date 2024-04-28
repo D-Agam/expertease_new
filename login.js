@@ -5,6 +5,7 @@ const path = require("path");
 app.use(express.urlencoded({ extended: true }));
 const bodyParser = require("body-parser");
 const e = require("express");
+const { INSERT } = require("sequelize/lib/query-types");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 const connection = mysql.createConnection({
@@ -204,6 +205,33 @@ app.get("/history", (req, res) => {
     res.render('history.ejs', { data: results });
   });
 });
+app.get("/faqs",(req,res)=>{
+  const query = `SELECT * FROM faqs`;
+  connection.query(query,(err, results) => {
+    if (err) {
+      console.error("Error fetching data:", err);
+      res.status(500).send("Error fetching data from database");
+      return;
+    }    
+    console.log(results);
+    res.render('faq.ejs', { data: results });
+  });
+})
+app.post("/faqs", (req, res) => {
+  let question = req.body.question_input;
+  console.log(question);
+      let insertQuery = `INSERT INTO faqs (question) VALUES (?)`;
+      connection.query(insertQuery, [question], (err, results) => {
+          if (err) {
+              console.error("Error inserting data:", err);
+              res.status(500).send("Error inserting data into the database");
+          } else {
+              console.log("Question inserted successfully");
+              res.render("faq.ejs");
+          }
+      });
+  }
+);
 
 app.get("/checkout", (req, res) => {
   let amount = req.query.total;
