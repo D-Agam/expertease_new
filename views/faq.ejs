@@ -1,0 +1,45 @@
+<!-- faq.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+    <style>
+        header {
+            background-color: #ececc6;
+            color: rgb(36, 36, 36);
+            padding: 20px;
+            text-align: center;
+        }
+        button{
+            background-color: #ffae42;
+        color: rgb(92, 92, 92);
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Frequently Asked Questions</h1></header>
+    <ul>
+        <% data.forEach(faq => { %>
+            <li>
+                <strong>Q: <%= faq.question %></strong><br>
+                A: <%= faq.answers %>
+            </li>
+            <br>
+        <% }); %>
+    </ul>
+    <form method="post" action="/faqs">
+        <span style="font-weight: 900;">Ask a question :</span>
+        <input type="text" id="question_input" name="question_input" size="60" />
+        <button type="submit" id="question_submit">Post</button>
+    </form>
+</body>
+</html>
